@@ -1,5 +1,12 @@
 package alquilerVehiculos.mvc.modelo.dao;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
 
 import alquilerVehiculos.mvc.modelo.dominio.Alquiler;
@@ -9,7 +16,7 @@ import alquilerVehiculos.mvc.modelo.dominio.vehiculo.Vehiculo;
 
 public class Alquileres {
 
-	// atributos
+	// atributos alquileres
 
 	private final int MAX_ALQUILERES = 5;
 	private Alquiler[] alquileres;
@@ -35,8 +42,52 @@ public class Alquileres {
 		return MAX_ALQUILERES;
 	}
 
+	// metodo de lectura y escritura de alquiler
+
+	// Metodos de lectura de fichero
+
+	public void leerAlquileres() {
+		File dir = new File("NUEVODIRVEHICULOS"); // Creo un directorio a partir del actual
+		String ruta = "/Users/crosanom/eclipse-workspace/Rosano_Morin_Cristina_PROG07/NUEVODIRVEHICULOS/Fichero3.txt";
+		File fichero = new File(ruta);
+		// muestra la ruta
+		System.out.println("El fichero esta en " + fichero.getAbsolutePath());
+		ObjectInputStream entrada;
+		try {
+			entrada = new ObjectInputStream(new FileInputStream(fichero));
+			try {
+				alquileres = (Alquiler[]) entrada.readObject();
+				entrada.close();
+				System.out.println("Fichero alquileres lei­do satisfactoriamente.");
+			} catch (ClassNotFoundException e) {
+				System.out.println("No puedo encontrar la clase que tengo que leer.");
+			} catch (IOException e) {
+				System.out.println("Error inesperado de Entrada/Salida.");
+			}
+		} catch (IOException e) {
+			System.out.println("No puedo abrir el fihero de alquileres.");
+		}
+	}
+
+	// metodo escritura
+
+	public void escribirAlquileres() {
+		String ruta = "/Users/crosanom/eclipse-workspace/Rosano_Morin_Cristina_PROG07/NUEVODIRVEHICULOS/Fichero3.txt";
+		File fichero = new File(ruta);
+		try {
+			ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(fichero));
+			salida.writeObject((Alquiler[]) alquileres);
+			salida.close();
+			System.out.println("Fichero vehiculos escrito satisfactoriamente");
+		} catch (FileNotFoundException e) {
+			System.out.println("No puedo crear el fichero de alquileres");
+		} catch (IOException e) {
+			System.out.println("Error inesperado de Entrada/Salida");
+		}
+	}
+
 	// abrir alquiler (buscarIndiceLibre, indiceNoSupera)
-	
+
 	/**
 	 * @param cliente
 	 * @param vehiculo
@@ -51,8 +102,8 @@ public class Alquileres {
 		}
 	}
 
-	// Metodo buscarPrimerIndiceLibreComprobandoExistencia (noSuperaTamano) 
-	
+	// Metodo buscarPrimerIndiceLibreComprobandoExistencia (noSuperaTamano)
+
 	/**
 	 * @param vehiculo
 	 * @return indice
@@ -76,13 +127,14 @@ public class Alquileres {
 	// metodo indiceNoSuperaTamaño(int indice)
 	/**
 	 * @param indice
-	 * @return boolean 
+	 * @return boolean
 	 */
 	private boolean indiceNoSuperaTamano(int indice) {
 		return indice < alquileres.length;
 	}
 
-	// cerrar alquiler pasandole solo un vehiculo (buscarIndiceAlquilerAbierto , indiceNoSuperaTamano)
+	// cerrar alquiler pasandole solo un vehiculo (buscarIndiceAlquilerAbierto ,
+	// indiceNoSuperaTamano)
 
 	/**
 	 * @param vehiculo
@@ -96,7 +148,7 @@ public class Alquileres {
 	}
 
 	// private int buscarAlquilerAbierto(indiceNoSuperaTamaño)
-	
+
 	/**
 	 * @param vehiculo
 	 * @return

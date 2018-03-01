@@ -1,5 +1,6 @@
 package alquilerVehiculos.mvc.modelo.dominio;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;// instanciar la clase Fecha y acceder a sus metodos
 
@@ -10,8 +11,8 @@ import alquilerVehiculos.mvc.modelo.dominio.vehiculo.Vehiculo;
  * @author crosanom
  *
  */
-
-public class Alquiler {
+// implementando serializable 
+public class Alquiler implements Serializable {
 	// atributos de la clase Alquiler.
 	private Cliente cliente;
 	private Vehiculo vehiculo;
