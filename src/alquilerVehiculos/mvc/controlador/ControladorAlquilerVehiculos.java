@@ -30,13 +30,25 @@ public class ControladorAlquilerVehiculos implements IControladorAlquilerVehicul
 	/* (non-Javadoc)
 	 * @see alquilerVehiculos.mvc.controlador.IControladorAlquilerVehiculo#comenzar()
 	 */
+	
 	@Override
 	public void comenzar() {
 		
 		modelo.anadirDatosPrueba();
+		modelo.leerClientes();
+		modelo.leerVehiculos();
+		modelo.leerTrabajos();
 		vista.comenzar();
 	}
 
+	
+	@Override
+	public void salir() {
+		modelo.escribirClientes();
+		modelo.escribirVehiculos();
+		modelo.escribirTrabajos();
+	}
+	
 	// metodos de cliente Cliente
 	/* (non-Javadoc)
 	 * @see alquilerVehiculos.mvc.controlador.IControladorAlquilerVehiculo#anadirCliente(alquilerVehiculos.mvc.modelo.dominio.Cliente)
