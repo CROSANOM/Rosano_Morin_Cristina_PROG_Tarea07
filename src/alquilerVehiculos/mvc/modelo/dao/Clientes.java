@@ -2,8 +2,11 @@ package alquilerVehiculos.mvc.modelo.dao;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
 
 import alquilerVehiculos.mvc.modelo.dominio.Cliente;
@@ -66,7 +69,23 @@ public class Clientes {
 		return ultimoIdentificador;
 	}
 	
+	//  Escribir Ficheros 
 	
+	public void escribirClientes() {
+		File dir = new File("NUEVODIRVEHICULOS"); // Creo un directorio a partir del actual
+		String ruta ="/Users/crosanom/eclipse-workspace/Rosano_Morin_Cristina_PROG07/NUEVODIRVEHICULOS/Fichero1.txt";
+		File fichero = new File(ruta);
+		try {
+			ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(fichero));
+			salida.writeObject((Cliente[])clientes);
+			salida.close();
+			System.out.println("Fichero clientes escrito satisfactoriamente.");
+		} catch (FileNotFoundException e) {
+			System.out.println("No puedo crear el fichero de clientes");
+		} catch (IOException e) {
+			System.out.println("Error inesperado de Entrada/Salida");
+		}
+	}
 	
 	
 	

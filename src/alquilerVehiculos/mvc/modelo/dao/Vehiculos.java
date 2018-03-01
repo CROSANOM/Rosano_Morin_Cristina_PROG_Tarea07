@@ -33,11 +33,11 @@ public class Vehiculos {
 
 	
 	
-	// Metodos de escritura de fichero 
+	// Metodos de lectura  de fichero 
 	
 	public void leerVehiculos() {
 		File dir = new File("NUEVODIRVEHICULOS"); // Creo un directorio a partir del actual
-		String ruta ="/Users/crosanom/eclipse-workspace/Rosano_Morin_Cristina_PROG07/NUEVODIRVEHICULOS/Fichero2.txt";
+		String ruta ="/Users/crosanom/eclipse-workspace/Rosano_Morin_Cristina_PROG07/NUEVODIRVEHICULOS/Fichero1.txt";
 		File fichero = new File(ruta);
 		// muestra la ruta 
 		System.out.println("El fichero esta en "+fichero.getAbsolutePath());
@@ -57,6 +57,8 @@ public class Vehiculos {
 			System.out.println("No puedo abrir el fihero de vehículos.");
 		}
 	}
+	
+	// metodo escritura 
 	
 	public void escribirVehiculos() {
 		String ruta ="/Users/crosanom/eclipse-workspace/Rosano_Morin_Cristina_PROG07/NUEVODIRVEHICULOS/Fichero1.txt";
