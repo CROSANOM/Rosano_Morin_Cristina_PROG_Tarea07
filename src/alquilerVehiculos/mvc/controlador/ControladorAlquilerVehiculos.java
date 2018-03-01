@@ -9,7 +9,7 @@ import alquilerVehiculos.mvc.vista.IUTextual;
 
 public class ControladorAlquilerVehiculos implements IControladorAlquilerVehiculo {
 
-	// atributos
+	// atributos.
 	 IModeloAlquilerVehiculos modelo;
 	 IUTextual vista;
 
@@ -37,16 +37,17 @@ public class ControladorAlquilerVehiculos implements IControladorAlquilerVehicul
 		modelo.anadirDatosPrueba();
 		modelo.leerClientes();
 		modelo.leerVehiculos();
-		modelo.leerTrabajos();
+		modelo.leerAlquileres();
 		vista.comenzar();
 	}
 
 	
-	@Override
 	public void salir() {
+	
 		modelo.escribirClientes();
 		modelo.escribirVehiculos();
-		modelo.escribirTrabajos();
+		modelo.escribirAlquileres();
+		
 	}
 	
 	// metodos de cliente Cliente

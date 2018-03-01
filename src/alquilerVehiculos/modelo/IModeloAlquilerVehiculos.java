@@ -96,4 +96,20 @@ public interface IModeloAlquilerVehiculos {
 	// Metodo con datos de pruebas
 	void anadirDatosPrueba();
 
+	void leerClientes();
+
+	void leerVehiculos();
+
+
+
+	void escribirClientes();
+
+	void escribirVehiculos();
+
+
+
+	void leerAlquileres();
+
+	void escribirAlquileres();
+
 }

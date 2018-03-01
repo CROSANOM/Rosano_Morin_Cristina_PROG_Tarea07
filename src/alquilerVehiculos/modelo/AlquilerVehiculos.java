@@ -215,6 +215,13 @@ public class AlquilerVehiculos implements IModeloAlquilerVehiculos {
 				+ "]";
 	}
 
+	
+	
+	
+	
+	
+	
+	
 	// Metodo con datos de pruebas
 	/*
 	 * (non-Javadoc)
@@ -289,48 +296,41 @@ public class AlquilerVehiculos implements IModeloAlquilerVehiculos {
 		System.out.println("Comprobar la disponibilidad del vehiculo04 al CERRAR Alquiler " + "\n" + "VEHICULO1"
 				+ vehiculop1.getDisponible());
 		
-		File dir = new File ("NUEVO DIR");
-		File file1 = new File (dir,"FICHERO1.txt");
-		dir.mkdir();
-		File file = new File(dir, "Fichero1.txt");
-		File file2 = new File(dir, "Fichero2.txt");
-		dir.mkdir();// creo un fichero fisico en el directorio
-
-		try {
-
-			if (file.createNewFile())
-
-				System.out.println("FICHERO1, creado correctamente");
-
-			else
-				System.out.println("NO se HA PODIDO CREAR FICHERO1");
-
-			if (file2.createNewFile())
-				System.out.println("SE ha creado correctamente FICHERO2");
-
-			else
-				System.out.println("NO SE HA PODIDO CREAR FICHERO2");
-			    System.out.println("LA RUTA DEL FICHERO ES " +file2.getAbsolutePath());
-
-		} catch (IOException ieo) {
-			ieo.printStackTrace();
-		}
-
-		file.renameTo(new File(dir, "FICHERO1NUEVO\\FICHERO3.txt"));
-		try {
-
-			File file3 = new File("NuevoDir\\FICHERO.TXT");
-
-			file.createNewFile();
-
-		} catch (IOException ieo) {
-			ieo.printStackTrace();
-		}
-
+		
 		
 		
 	}
 	
+	
+	// metodo editar ficheros 
+	
+	
+	public void leerClientes() {
+		clientes.leerClientes();
+	}
+
+	
+	public void escribirClientes() {
+		clientes.escribirClientes();		
+	}
+
+	public void leerVehiculos() {
+		vehiculos.leerVehiculos();
+	}
+
+	public void escribirVehiculos() {
+		vehiculos.escribirVehiculos();
+	}
+
+	
+	public void leerAlquileres() {
+		alquileres.leerAlquileres();
+	}
+
+	public void escribirAlquileres() {
+		alquileres.escribirAlquileres();
+}
+
 
 
 
