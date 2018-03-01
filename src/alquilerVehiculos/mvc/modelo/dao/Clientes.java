@@ -1,5 +1,9 @@
 package alquilerVehiculos.mvc.modelo.dao;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.Arrays;
 
 import alquilerVehiculos.mvc.modelo.dominio.Cliente;
@@ -24,6 +28,48 @@ public class Clientes {
 	public Cliente[] getClientes() {
 		return clientes.clone();
 	}
+	
+	
+	// METODOS EDITAR FICHEROS 
+	
+	// leer 
+	
+	public void leerClientes() {
+		File dir = new File("NUEVODIRVEHICULOS"); // Creo un directorio a partir del actual
+		String ruta ="/Users/crosanom/eclipse-workspace/Rosano_Morin_Cristina_PROG07/NUEVODIRVEHICULOS/Fichero1.txt";
+		File fichero = new File(ruta);
+		ObjectInputStream entrada;
+		try {
+			entrada = new ObjectInputStream(new FileInputStream(fichero));
+			try {
+				clientes = (Cliente[])entrada.readObject();
+				entrada.close();
+				System.out.println("Fichero clientes leído satisfactoriamente.");
+				Cliente.aumentarUltimoIdentificador(calcularUltimoIdentificador());
+			} catch (ClassNotFoundException e) {
+				System.out.println("No puedo encontrar la clase que tengo que leer.");
+			} catch (IOException e) {
+				System.out.println("Error inesperado de Entrada/Salida.");
+			}
+		} catch (IOException e) {
+			System.out.println("No puedo abrir el fihero de clientes.");
+		}
+	}
+	
+	private int calcularUltimoIdentificador() {
+		int ultimoIdentificador = 0;
+		int i = 0;
+		while (clientes[i] != null) {
+			if (clientes[i].getIdentificador() > ultimoIdentificador)
+				ultimoIdentificador = clientes[i].getIdentificador();
+		}
+		return ultimoIdentificador;
+	}
+	
+	
+	
+	
+	
 	/*anadir Clientes (BuscarIndiceLibreComprobandoExistencia,
 	 indiceNoSuperaTamano)*/
 
@@ -128,6 +174,11 @@ public class Clientes {
 			return null;
 	}
 
+	
+	
+	
+	
+	
 	/*
 	 * (non-Javadoc)
 	 * 

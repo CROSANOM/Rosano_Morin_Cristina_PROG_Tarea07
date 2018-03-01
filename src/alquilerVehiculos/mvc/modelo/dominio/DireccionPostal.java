@@ -1,11 +1,12 @@
 package alquilerVehiculos.mvc.modelo.dominio;
 
+import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /*Se Extrae de la clase Cliente */
 
-public class DireccionPostal {
+public class DireccionPostal implements Serializable{
 
 	private String calle;
 	private String localidad;

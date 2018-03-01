@@ -1,10 +1,11 @@
 
 package alquilerVehiculos.mvc.modelo.dominio;
 
+import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Cliente {
+public class Cliente implements Serializable{
 
 	// atributos
 	private String nombre;
@@ -132,6 +133,11 @@ public class Cliente {
 	public String toString() {
 		return "Cliente [nombre=" + nombre + ", dni=" + dni + ", identificador=" + identificador + ", direccionPostal="
 				+ direccionPostal + "]";
+	}
+
+	public static void aumentarUltimoIdentificador(int calcularUltimoIdentificador) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
