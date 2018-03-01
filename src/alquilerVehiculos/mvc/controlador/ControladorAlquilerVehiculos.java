@@ -34,7 +34,7 @@ public class ControladorAlquilerVehiculos implements IControladorAlquilerVehicul
 	@Override
 	public void comenzar() {
 		
-		modelo.anadirDatosPrueba();
+//		modelo.anadirDatosPrueba();
 		modelo.leerClientes();
 		modelo.leerVehiculos();
 		modelo.leerAlquileres();
@@ -146,13 +146,19 @@ public class ControladorAlquilerVehiculos implements IControladorAlquilerVehicul
 		return modelo.obtenerAlquileres();
 	}
 
+	@Override
+	public void anadirDatosPrueba() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	/* (non-Javadoc)
 	 * @see alquilerVehiculos.mvc.controlador.IControladorAlquilerVehiculo#anadirDatosPrueba()
 	 */
-	@Override
-	public void anadirDatosPrueba() {
-		modelo.anadirDatosPrueba();
-
-	}
+	//@Override
+//	public void anadirDatosPrueba() {
+//		modelo.anadirDatosPrueba();
+//
+//	}
 
 }

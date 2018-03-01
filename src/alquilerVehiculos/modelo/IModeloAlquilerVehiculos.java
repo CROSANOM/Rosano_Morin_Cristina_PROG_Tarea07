@@ -93,20 +93,16 @@ public interface IModeloAlquilerVehiculos {
 	 */
 	String toString();
 
-	// Metodo con datos de pruebas
-	void anadirDatosPrueba();
+//	// Metodo con datos de pruebas
+//	void anadirDatosPrueba();
 
 	void leerClientes();
 
 	void leerVehiculos();
 
-
-
 	void escribirClientes();
 
 	void escribirVehiculos();
-
-
 
 	void leerAlquileres();
 
